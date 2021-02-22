@@ -1,0 +1,103 @@
+% Output files and paths
+% NOTE: If files are written to surph instead of scratch
+% we need to lower the number of files written in parallel
+% below in order not to overload the file system.
+
+InitCondFile              /project/surph/diemer/Box_L0063_N0256_CBol/ICs/ics
+OutputDir                 /project/surph/diemer/Box_L0063_N0256_CBol_gde
+EnergyFile                energy.txt
+InfoFile                  info.txt
+TimingsFile               timings.txt
+CpuFile                   cpu.txt
+RestartFile               restart
+SnapshotFileBase          snapshot
+TimebinFile               timebin.txt
+
+% Internal clock for runs and restart
+
+TimeLimitCPU              129600
+ResubmitOn                0
+ResubmitCommand           resub.sh
+CpuTimeBetRestartFile     3600
+
+% File formats and file system use
+
+ICFormat                  1
+SnapFormat                1
+NumFilesPerSnapshot       16
+NumFilesWrittenInParallel 16
+
+% Output frequency
+
+OutputListFilename        ./output_times.txt
+OutputListOn              0
+TimeBetSnapshot           1.0126
+TimeOfFirstSnapshot       0.1
+TimeBetStatistics         0.1
+
+% Memory usage
+
+MaxMemSize                26000
+PartAllocFactor           2.0
+BufferSize                200
+
+% Cosmological info for run
+
+PeriodicBoundariesOn      1
+ComovingIntegrationOn     1
+CoolingOn                 0
+StarformationOn           0
+TimeBegin                 0.02
+TimeMax                   1.1
+Omega0                    0.27
+OmegaLambda               0.73
+OmegaBaryon               0.0469
+HubbleParam               0.7
+BoxSize                   62.5
+
+MinGasHsmlFractional      0.25
+SofteningGas              0
+SofteningHalo             0.0058
+SofteningDisk             0
+SofteningBulge            0
+SofteningStars            0
+SofteningBndry            0
+SofteningGasMaxPhys       0
+SofteningHaloMaxPhys      0.0058
+SofteningDiskMaxPhys      0
+SofteningBulgeMaxPhys     0
+SofteningStarsMaxPhys     0
+SofteningBndryMaxPhys     0
+
+% Time integration and tree accuracy
+
+TypeOfTimestepCriterion   0
+ErrTolIntAccuracy         0.025
+CourantFac                0.15 
+MaxRMSDisplacementFac     0.2
+MaxSizeTimestep           0.01
+MinSizeTimestep           0.0
+ErrTolTheta               0.5
+TypeOfOpeningCriterion    1
+ErrTolForceAcc            0.002
+TreeDomainUpdateFrequency 0.05
+
+% Units - defaults to km/s and Mpc/h
+
+UnitLength_in_cm          3.085678e24
+UnitMass_in_g             1.989e43
+UnitVelocity_in_cm_per_s  1e5
+GravityConstantInternal   0
+
+% GDE settings
+
+DM_velocity_dispersion    0.03
+TidalCorrection           0
+
+% Settings needed for Gadget 3
+
+InitGasTemp               1000.0
+MinGasTemp                5.0
+DesNumNgb                 64
+MaxNumNgbDeviation        1
+ArtBulkViscConst          1.0

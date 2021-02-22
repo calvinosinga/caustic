@@ -1,0 +1,21 @@
+storing notes about what each of the files are here
+
+sim folder stores info that gadget needs to run a simulation.
+I'm guessing that initial_conditions stores its namesake, but I can't read the
+files so I'm not sure what they are the IC for.
+rockstar stores post-sim analysis stuff
+gadget-gde has a bunch of stuff...
+
+In the sim folder:
+
+run.sbatch ###################
+
+file that submits the simulation to slurm. Need to change filepaths to my
+directory. automatically(?) handles restarting a simulation for some reason
+
+-does the simulation need to stop itself? (i.e. if the power goes out, I will
+not get my simulation back, correct?)
+
+lgadget.param ####################
+
+the parameter file for a simulation, storing initial conditions.

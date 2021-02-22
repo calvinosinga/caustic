@@ -1,0 +1,126 @@
+#!/bin/bash            # this line only there to enable syntax highlighting in this file
+
+#--------------------------------------- Basic operation mode of code
+PERIODIC
+#COOLING
+#SFR
+#SINKS
+#UNEQUALSOFTENINGS
+#NUM_THREADS=4              # Now OpenMP works the same, so don't compile with OpenMP *and* PTHREADS !
+
+
+#--------------------------------------- TreePM Options
+PMGRID=2048
+#GRIDBOOST=2
+#ASMTH=1.25
+#RCUT=5.25
+#PLACEHIGHRESREGION=3
+#ENLARGEREGION=1.2
+
+
+#--------------------------------------- Multi-Domain and Top-Level Tree options
+#MULTIPLEDOMAINS=16
+#TOPNODEFACTOR=3.0
+#KD_HMAX_ESTIMATE           # Alternative way to update HMAX within Tree nodes
+
+#--------------------------------------- Things that are always recommended
+PEANOHILBERT
+WALLCLOCK
+MYSORT
+#AUTO_SWAP_ENDIAN_READIC        # Enables automatic ENDIAN swapping for reading ICs
+#WRITE_KEY_FILES                # Enables writing key index files
+#WRITE_INFO_BLOCK               # Enables writing the INFO block
+#PERMUTATAION_OPTIMIZATION
+#PROCESS_TIMES_OF_OUTPUTLIST    # Chooses the outputtime closest to any global step
+#SYNCRONIZ_OUTPUT               # Writes output only at global time steps
+
+#---------------------------------------- Single/Double Precision
+#DOUBLEPRECISION
+#DOUBLEPRECISION_FFTW
+#OUTPUT_IN_DOUBLEPRECISION # snapshot files will be written in double precision
+#INPUT_IN_DOUBLEPRECISION
+
+
+#-------------------------------------------- Things for special behaviour
+#WINDTUNNEL
+#POWERSPEC_ON_OUTPUT
+#POWERSPEC_ON_OUTPUT_EACH_TYPE
+#DO_NOT_CREATE_STAR_PARTICLES
+#TRADITIONAL_SPH_FORMULATION
+#NOTEST_FOR_IDUNIQUENESS
+#SNIA_HEATING
+#RADIAL_TREE                   #make tree forces exact radial (only implemented in tree, not TreePM)
+#FIXEDTIMEINFIRSTPHASE=1000.0
+NO_ISEND_IRECV_IN_DOMAIN
+FIX_PATHSCALE_MPI_STATUS_IGNORE_BUG
+#MPISENDRECV_SIZELIMIT=100
+#MPISENDRECV_CHECKSUM
+#NOGRAVITY
+#NOACCEL
+#NOISMPRESSURE
+#NOVISCOSITYLIMITER
+#NOTREERND
+NOTYPEPREFIX_FFTW
+#ISOTHERM=200                  # adds potential of an isothermal sphere
+#COMPUTE_POTENTIAL_ENERGY
+#ALLOWEXTRAPARAMS
+#LONGIDS
+#ENLARGE_DYNAMIC_RANGE_IN_TIME  # NOT TESTED !!!
+#ASSIGN_NEW_IDS
+#INHOMOG_GASDISTR_HINT         # if the gas is distributed very different from collisionless particles, this can helps to avoid problems in the domain decomposition
+#LONG_X=140
+#LONG_Y=1
+#LONG_Z=1
+#SPH_BND_PARTICLES
+#NEW_RATES                     # switches in updated cooling rates from Naoki
+#RADIATIVE_RATES               # used in non-equilibrium chemistry model
+#READ_HSML                     # reads hsml from IC file
+#ADAPTIVE_GRAVSOFT_FORGAS      # allows variable softening length for gas particles (requires UNEQUALSOFTENINGLENGTH)
+#ADAPTIVE_GRAVSOFT_FORGAS_HSML # this sets the gravitational softening for SPH particles equal to the SPH smoothing (requires ADAPTIVE_GRAVSOFT_FORGAS)
+#GENERATE_GAS_IN_ICS
+#SPLIT_PARTICLE_TYPE=4+8
+#NEUTRINOS                     # Option for special integration of light neutrino species
+#OMIT_NEUTRINOS_IN_SNAPS
+#KSPACE_NEUTRINOS
+#START_WITH_EXTRA_NGBDEV        # Uses special MaxNumNgbDeviation for starting
+#ISOTHERM_EQS                  # isothermal equation of state
+#NO_UTHERM_IN_IC_FILE
+#SPECIAL_GAS_TREATMENT_IN_HIGHRESREGION
+#DONOTUSENODELIST
+#MAXHSML
+#SUB_TURB_DRIVING
+#ADJ_BOX_POWERSPEC         # compiles in a code module that allows via restart-flag 6 the calculation of a gas velocity power spectrum of a snapshot with an adjustable box (user defined center and size)
+
+#--------------------------------------- Output/Input options
+#OUTPUTPOTENTIAL
+#RECOMPUTE_POTENTIAL_ON_OUTPUT # update potential every output even it EVALPOTENTIAL is set
+#OUTPUTACCELERATION
+#OUTPUTCHANGEOFENTROPY
+#OUTPUT_DIV_CURL
+#OUTPUT_VORTICITY              # outputs the vorticity vector
+#OUTPUTTIMESTEP
+#OUTPUTCOOLRATE                # outputs cooling rate, and conduction rate if enabled
+#HAVE_HDF5                     # needed when HDF5 I/O support is desired
+#OUTPUTBSMOOTH
+#OUTPUTDENSNORM
+#XXLINFO                       # Enables additional output for viscosityand bfield
+#OUTPUTLINEOFSIGHT             # enables on-the-fly output of Ly-alpha absorption spectra
+#OUTPUTLINEOFSIGHT_SPECTRUM
+#OUTPUTLINEOFSIGHT_PARTICLES
+
+#--------------------------------------- Testing and Debugging options
+#FORCETEST=0.1
+DEBUG                     # enables core-dumps and FPU exceptions
+#PARTICLE_DEBUG            # auxiliary communication of IDs
+#VERBOSE
+#CHECKSUM_DEBUG
+
+#--------------------------------------- Fine-grained phase space structure analysis
+DISTORTIONTENSORPS           #main switch: integrate phase-space distortion tensor
+OUTPUT_DISTORTIONTENSORPS    #write phase-space distortion tensor to snapshot
+OUTPUT_TIDALTENSORPS         #write configuration-space tidal tensor to snapshot
+CAUSTIC_FINDER=2             #find caustics (only 2^type particles) and write caustic info to caustics_#.txt
+OUTPUT_LAST_CAUSTIC          #write info on last passed caustic to snapshot (needs CAUSTIC_FINDER to be set)
+#DISTORTION_READALL           #read in all GDE relavant information from ICs
+COMOVING_DISTORTION          #cosmological simulation; for turnaround calculation the final comoving r_ta is given
+#COMOVING_READIC             #read sheet orientatio/initial density from IC instead of setting linear regime values
