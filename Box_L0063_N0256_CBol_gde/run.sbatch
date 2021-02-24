@@ -5,10 +5,10 @@
 #SBATCH --time=36:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=16
-#SBATCH --partition=sandyb
-#SBATCH --account=pi-kravtsov
-#SBATCH --constraint=ib
-#SBATCH --shared
+#SBATCH --account=astronomy-hi
+#SBATCH --share
+#SBATCH --mail-user=cosinga@umd.edu
+#SBATCH --mail-type=ALL
 
 # Constants for this run
 
@@ -20,8 +20,8 @@ nproc=16
 folder="Box_${run}"
 
 #exeGadget="/home/diemer/Software/uberl-gadget2/L-Gadget2"
-exeGadget="/home/diemer/Software/gadget-gde/P-Gadget3"
-pathSim="/home/diemer/Simulations/3_Sim/"
+exeGadget="/lustre/cosinga/caustic/gadget-gde/P-Gadget3"
+pathSim="/lustre/cosinga/caustic/"
 
 # Now run Gadget. uberLGadget outputs a flag file called restartme if a
 # run aborts.
